@@ -1,0 +1,92 @@
+[
+  {
+    "width": 1440,
+    "pageWidth": 1440,
+    "height": 2190,
+    "fonts": true,
+    "missingAnchors": [],
+    "images": [
+      {
+        "src": "http://localhost:8100/assets/new_assets/whatwebuild.jpg",
+        "loaded": true
+      }
+    ],
+    "backgrounds": [
+      "url(\"http://localhost:8100/assets/new_assets/hero-image.jpg\")",
+      "linear-gradient(rgba(11, 33, 48, 0.79), rgba(11, 33, 48, 0.91)), url(\"http://localhost:8100/assets/old_assets/hero.webp\")"
+    ],
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "pageWidth": 1280,
+    "height": 1948,
+    "fonts": true,
+    "missingAnchors": [],
+    "images": [
+      {
+        "src": "http://localhost:8100/assets/new_assets/whatwebuild.jpg",
+        "loaded": true
+      }
+    ],
+    "backgrounds": [
+      "url(\"http://localhost:8100/assets/new_assets/hero-image.jpg\")",
+      "linear-gradient(rgba(11, 33, 48, 0.79), rgba(11, 33, 48, 0.91)), url(\"http://localhost:8100/assets/old_assets/hero.webp\")"
+    ],
+    "errors": []
+  },
+  {
+    "width": 1024,
+    "pageWidth": 1024,
+    "height": 1560,
+    "fonts": true,
+    "missingAnchors": [],
+    "images": [
+      {
+        "src": "http://localhost:8100/assets/new_assets/whatwebuild.jpg",
+        "loaded": true
+      }
+    ],
+    "backgrounds": [
+      "url(\"http://localhost:8100/assets/new_assets/hero-image.jpg\")",
+      "linear-gradient(rgba(11, 33, 48, 0.79), rgba(11, 33, 48, 0.91)), url(\"http://localhost:8100/assets/old_assets/hero.webp\")"
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "pageWidth": 768,
+    "height": 3344,
+    "fonts": true,
+    "missingAnchors": [],
+    "images": [
+      {
+        "src": "http://localhost:8100/assets/new_assets/whatwebuild.jpg",
+        "loaded": true
+      }
+    ],
+    "backgrounds": [
+      "url(\"http://localhost:8100/assets/new_assets/hero-image.jpg\")",
+      "linear-gradient(rgba(11, 33, 48, 0.79), rgba(11, 33, 48, 0.91)), url(\"http://localhost:8100/assets/old_assets/hero.webp\")"
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "pageWidth": 390,
+    "height": 4474,
+    "fonts": true,
+    "missingAnchors": [],
+    "images": [
+      {
+        "src": "http://localhost:8100/assets/new_assets/whatwebuild.jpg",
+        "loaded": true
+      }
+    ],
+    "backgrounds": [
+      "url(\"http://localhost:8100/assets/new_assets/hero-image.jpg\")",
+      "linear-gradient(rgba(11, 33, 48, 0.79), rgba(11, 33, 48, 0.91)), url(\"http://localhost:8100/assets/old_assets/hero.webp\")"
+    ],
+    "errors": []
+  }
+]
