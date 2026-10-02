@@ -14,7 +14,7 @@ export default function OpportunityGap() {
               </div>
             </div>
             <figure className="tajo-problem-art" data-reveal>
-              <img src="/assets/new_assets/problem-illustration.jpg" width="2270" height="1888" loading="lazy" decoding="async" alt="A busy service business owner considering a clipboard while their phone rings." />
+              <img src="/assets/new_assets/problem-illustration.webp" width="1375" height="1144" loading="lazy" decoding="async" alt="A busy service business owner considering a clipboard while their phone rings." />
             </figure>
             <ul className="tajo-gap-list">
               {gaps.map((gap) => <li key={gap} data-reveal><span aria-hidden="true">×</span>{gap}</li>)}

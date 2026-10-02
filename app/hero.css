@@ -22,7 +22,7 @@ html { scroll-padding-top: 100px; }
 .is-solid .tajo-nav-capsule > .tajo-nav-contact { background:#fff; color:#0f2c58; }
 .is-solid .tajo-nav-capsule > .tajo-nav-contact:hover { background:#e6edf7; }
 .tajo-menu-toggle { display:none; }
-.tajo-hero { position:relative; isolation:isolate; overflow:hidden; background:#0f2c58 url('/assets/new_assets/hero-background.png') center top / 100% 100% no-repeat; padding:164px 32px 62px; color:#071c43; }
+.tajo-hero { position:relative; isolation:isolate; overflow:hidden; background:#0f2c58 url('/assets/new_assets/hero-background.webp') center top / 100% 100% no-repeat; padding:164px 32px 62px; color:#071c43; }
 .tajo-hero-copy { position:relative; width:min(1200px,100%); margin:auto; text-align:center; }
 .tajo-hero h1 { font-size:clamp(40px,5.2vw,76px); font-weight:650; line-height:1.13; letter-spacing:-3px; }
 .tajo-hero h1 span { color:#b88c43; }

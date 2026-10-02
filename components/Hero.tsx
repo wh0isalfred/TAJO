@@ -15,7 +15,7 @@ export default function Hero() {
         <p className="tajo-hero-note" data-reveal>Already have some of this handled? Good. We’ll start with what’s missing.</p>
       </div>
       <figure className="tajo-illustration is-visible" data-reveal>
-        <div className="tajo-illustration-image"><img src="/assets/new_assets/hero-illustration.png" width="2048" height="768" alt="Missed calls, website inquiries and estimates connect to capture, response and scheduled follow-up, helping arrange a next step." fetchPriority="high" /></div>
+        <div className="tajo-illustration-image"><img src="/assets/new_assets/hero-illustration.webp" width="2064" height="762" alt="Missed calls, website inquiries and estimates connect to capture, response and scheduled follow-up, helping arrange a next step." fetchPriority="high" /></div>
         <div className="tajo-mobile-journey">
           <p className="journey-bridge">TAJO connects what’s missing</p>
           <div className="journey-sources"><span>Missed call</span><span>Website inquiry</span><span>Estimate sent</span></div>

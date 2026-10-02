@@ -17,7 +17,7 @@ export default function WhatWeBuild() {
         <p className="tajo-trust-fix" data-reveal>Then we fix <span>that.</span></p>
       </div>
       <TrustScene>
-        <div className="tajo-trust-owner" data-reveal><div className="tajo-trust-owner-motion"><img src="/assets/new_assets/trust-illustration.png" width="1278" height="1231" loading="lazy" decoding="async" alt="A relaxed service business owner holding a tablet beside their workbench and toolbox." /></div></div>
+        <div className="tajo-trust-owner" data-reveal><div className="tajo-trust-owner-motion"><img src="/assets/new_assets/trust-illustration.webp" width="1278" height="1231" loading="lazy" decoding="async" alt="A relaxed service business owner holding a tablet beside their workbench and toolbox." /></div></div>
         <ul className="tajo-trust-services" aria-label="Where TAJO can help">
           {services.map((service, index) => <li key={service.title} data-reveal style={{ transitionDelay: `${index * 100}ms` }}><article><span className="tajo-trust-card-icon" aria-hidden="true"><Icon name={service.icon} /></span><h3>{service.title}</h3><p>{service.description}</p></article></li>)}
         </ul>
