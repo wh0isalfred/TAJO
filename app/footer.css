@@ -8,11 +8,12 @@
   align-items: center;
 }
 .footer-brand .brand {
-  color: var(--gold);
+  color: var(--navy);
   font-size: 19px;
   gap: 6px;
 }
 .footer-brand .brand svg {
+  color: var(--gold);
   width: 32px;
   height: 26px;
 }
