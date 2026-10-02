@@ -1,4 +1,6 @@
 export type IconName =
+  | "browser"
+  | "followup"
   | "phone"
   | "clock"
   | "person"
@@ -11,6 +13,8 @@ export type IconName =
   | "close"
   | "menu";
 const paths: Record<IconName, React.ReactNode> = {
+  browser: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M6 6.5h.1m3 0h.1M7 13h10m-10 3h6" /></>,
+  followup: <><path d="M19 8a8 8 0 1 0 1 8M19 3v5h-5" /><path d="M12 8v5l3 2" /></>,
   phone: <path d="M7 3 4 4c-2 5 7 14 12 14l2-3-4-3-2 2-5-5 2-2-2-4Z" />,
   clock: (
     <>

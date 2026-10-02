@@ -1,0 +1,7 @@
+/* Visibility resets only after a component leaves the viewport completely. */
+@media (prefers-reduced-motion:no-preference) {
+ [data-reveal] { transition:opacity 850ms ease,transform 850ms cubic-bezier(.2,.7,.2,1); }
+ [data-reveal].reveal-pending { opacity:0; transform:translateY(20px); transition-delay:0ms!important; }
+ [data-reveal]:focus-within { opacity:1!important; transform:none!important; }
+}
+@media (prefers-reduced-motion:reduce) { [data-reveal] { opacity:1!important; transform:none!important; transition:none!important; } }

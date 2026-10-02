@@ -4,6 +4,8 @@ import "./hero.css";
 import "./sections.css";
 import "./form.css";
 import "./faq.css";
+import "./trust.css";
+import "./motion.css";
 export const metadata: Metadata = {
   title: "TAJO — Intelligent infrastructure between inquiry and booking",
   description:
