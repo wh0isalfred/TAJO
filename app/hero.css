@@ -165,17 +165,6 @@
   max-height: 520px;
   aspect-ratio: 4/3;
 }
-.hero-photo {
-  --cut-radius: clamp(32px, 5vw, 72px);
-  -webkit-mask-image:
-    radial-gradient(circle at top left, transparent var(--cut-radius), #000 calc(var(--cut-radius) + 1px)),
-    radial-gradient(circle at bottom right, transparent var(--cut-radius), #000 calc(var(--cut-radius) + 1px));
-  mask-image:
-    radial-gradient(circle at top left, transparent var(--cut-radius), #000 calc(var(--cut-radius) + 1px)),
-    radial-gradient(circle at bottom right, transparent var(--cut-radius), #000 calc(var(--cut-radius) + 1px));
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
-}
 .hero-photo img {
   object-position: 50% 50%;
 }

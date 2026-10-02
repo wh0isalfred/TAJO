@@ -9,9 +9,7 @@ export default function FAQ() {
       <SectionReveal>
         <div className="tajo-container faq-panel">
           <h2 id="faq-heading" data-reveal>
-            Good
-            <br />
-            <em>questions.</em>
+            Quickly find your <em>answers.</em>
           </h2>
           <div className="tajo-faq-list">
             <details data-reveal name="tajo-faq" open>
