@@ -24,16 +24,14 @@
 .tajo-process-heading > div > p { color:#65758b; font-size:20px; line-height:1.5; margin-top:8px; }
 .tajo-process-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:40px; margin:26px 32px 0; }
 .tajo-process-steps li { min-width:0; position:relative; display:grid; grid-template-rows:1fr auto; }
-.tajo-step-copy { padding:28px 30px; border-radius:20px 20px 0 0; background:linear-gradient(180deg,#e7f2f6 0%,#f6fafb 100%); transition:transform 500ms ease,box-shadow 500ms ease; }
+.tajo-step-copy { min-height:176px; padding:26px 30px; border-radius:20px 20px 0 0; background:linear-gradient(180deg,#e7f2f6 0%,#f6fafb 100%); transition:transform 500ms ease,box-shadow 500ms ease; }
 .tajo-step-copy h3 { font-size:26px; line-height:1.3; font-weight:600; letter-spacing:-.6px; margin-bottom:10px; }
-.tajo-step-copy p { font-size:18px; line-height:1.5; color:#65758b; }
-.tajo-step-copy p + p { margin-top:16px; }
-.tajo-step-copy strong { font-weight:600; color:#0f2c58; }
+.tajo-step-copy p { font-size:20px; line-height:1.35; color:#65758b; }
 .tajo-process-steps li:not(:last-child):after { content:''; position:absolute; right:-35px; top:58px; width:30px; height:1px; background:#d1dce5; }
 .tajo-step-number { display:flex; align-items:baseline; gap:12px; color:#b7c6d2; font-size:18px; line-height:1; margin-top:8px; }
 .tajo-step-number > span { font-size:104px; font-weight:650; letter-spacing:-7px; color:#d3dee6; }
 .tajo-process-action { display:flex; justify-content:flex-end; margin:28px 32px 0; position:relative; }
-.tajo-process-action .tajo-section-button { font-size:16px; padding-inline:24px; }
+.tajo-process-action .tajo-section-button { font-size:14px; padding-inline:22px; }
 @media (hover:hover) and (pointer:fine) {
  .tajo-section-button:hover { background:#0f2c58; transform:translateY(-3px); box-shadow:0 8px 20px #0f2c5820; }
  .tajo-section-button:hover > span { transform:translateX(3px); }
@@ -52,7 +50,7 @@
  .tajo-gap-list li > span { width:36px; height:36px; }
  .tajo-process-heading { padding:0; }
  .tajo-process-steps { margin-inline:0; gap:26px; }
- .tajo-step-copy { padding:24px; }
+ .tajo-step-copy { padding:24px; min-height:210px; }
  .tajo-step-copy p { font-size:18px; }
  .tajo-process-steps li:not(:last-child):after { width:18px; right:-22px; }
  .tajo-process-action { margin:28px 0 0; }
@@ -64,15 +62,10 @@
  .tajo-process-heading { flex-direction:column; gap:24px; }
  .tajo-process-heading > div { text-align:left; }
  .tajo-process-steps { gap:16px; }
- .tajo-step-copy { padding:24px; }
+ .tajo-step-copy { padding:20px; min-height:250px; }
  .tajo-step-copy h3 { font-size:23px; }
  .tajo-process-steps li:after { display:none; }
  .tajo-step-number > span { font-size:80px; letter-spacing:-5px; }
-}
-@media (max-width:900px) {
- .tajo-process-steps { grid-template-columns:1fr; gap:28px; }
- .tajo-process-steps li:after { display:none; }
- .tajo-step-copy { padding:28px; }
 }
 @media (max-width:600px) {
  .tajo-section-container { width:calc(100% - 40px); }
