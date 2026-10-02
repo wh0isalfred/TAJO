@@ -33,13 +33,9 @@ export default function WhatWeBuild() {
               <br />
               <em>everything</em> out.
             </h2>
-            <div className="trust-message" data-reveal>
-              <h3>Keep what works. Fix what’s missing.</h3>
-              <p>
-                We review your website, response and follow-up process, then
-                build only what your business needs.
-              </p>
-            </div>
+            <p className="trust-message" data-reveal>
+              Already have part of this handled? Good. We’ll work on what’s missing.
+            </p>
           </div>
           <ul className="trust-services" aria-label="Where TAJO can help">
             {services.map((service) => (
