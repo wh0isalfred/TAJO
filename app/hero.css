@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   z-index: 30;
-  background: #ffffffed;
+  background: #faf8f4ed;
   transition:
     background 0.3s,
     color 0.3s,
@@ -41,8 +41,8 @@
   bottom: 7px;
   left: 0;
   width: 100%;
-  height: 1px;
-  background: currentColor;
+  height: 2px;
+  background: var(--gold);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.2s;
@@ -107,12 +107,23 @@
 }
 .tajo-hero {
   padding: 154px 0 64px;
+  background: #faf8f4;
+  border-bottom: 1px solid #c8a96a24;
 }
 .hero-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 56px;
   align-items: center;
+}
+.tajo-home .brand {
+  color: var(--gold);
+}
+.hero-copy h1 em {
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 9px;
 }
 .hero-copy h1 {
   font-size: clamp(46px, 4.6vw, 70px);
@@ -150,6 +161,9 @@
   min-height: 400px;
   max-height: 520px;
   aspect-ratio: 4/3;
+}
+.hero-photo {
+  clip-path: polygon(0 12%, 12% 12%, 12% 0, 100% 0, 100% 88%, 88% 88%, 88% 100%, 0 100%);
 }
 .hero-photo img {
   object-position: 50% 50%;
@@ -221,7 +235,9 @@
     justify-content: space-between;
   }
   .navigation-side > a:after {
-    display: none;
+    display: block;
+    width: 32px;
+    bottom: 5px;
   }
   .tajo-hero {
     padding-top: 116px;

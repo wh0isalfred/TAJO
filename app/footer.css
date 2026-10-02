@@ -8,6 +8,7 @@
   align-items: center;
 }
 .footer-brand .brand {
+  color: var(--gold);
   font-size: 19px;
   gap: 6px;
 }
