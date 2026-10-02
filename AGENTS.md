@@ -13,6 +13,7 @@ One lightweight Next.js App Router landing page using React and TypeScript with 
 Use supplied files in assets/new_assets without modifying image bytes. Preserve all existing source assets. Serve browser files through public/. No stock imagery or invented customer testimonials.
 
 ## Forms and credentials
+The setup modal follows the approved image-left, form-right reference using unchanged assets/old_assets/hero.webp. Use Switzer, pale blue surfaces, navy actions and restrained gold focus accents. Persistent labels, explicit optional fields, single-column mobile, linked errors with summary focus, retained answers, keyboard dismissal/focus restoration and confirmed delivery are required. Ask the approved business type/inquiry source/follow-up questions plus name and email; business name and phone are optional. Do not restore the multi-step automated diagnostic.
 Never hardcode a form key in new committed source. Use NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY if configured. Without it, offer a reviewable email draft to the existing contact destination from the original site. Do not submit real test enquiries during validation.
 
 ## Checks and Git
