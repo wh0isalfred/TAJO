@@ -13,22 +13,52 @@ const notForBusinesses = [
 export default function WhoItsFor() {
   return (
     <>
-      <section className="tajo-fit tajo-section" id="who" aria-labelledby="fit-heading">
+      <section
+        className="tajo-fit tajo-section"
+        id="who"
+        aria-labelledby="fit-heading"
+      >
         <SectionReveal>
-          <div className="tajo-section-container">
+          <div className="tajo-container">
             <div className="tajo-fit-introduction" data-reveal>
-              <h2 id="fit-heading">Honest about who this serves.</h2>
-              <p>TAJO is built for some businesses and not for others. We'd rather say so up front.</p>
+              <h2 id="fit-heading">
+                Honest about who this <em>serves.</em>
+              </h2>
+              <p>
+                TAJO is built for some businesses and not for others. We'd
+                rather say so up front.
+              </p>
             </div>
             <div className="tajo-fit-columns">
-              <div data-reveal><h3>This is for</h3><ul>{forBusinesses.map((item) => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul></div>
-              <div data-reveal style={{ transitionDelay: "110ms" }}><h3>This is not for</h3><ul>{notForBusinesses.map((item) => <li key={item}><span aria-hidden="true">×</span>{item}</li>)}</ul></div>
+              <div data-reveal>
+                <h3>This is for</h3>
+                <ul>
+                  {forBusinesses.map((item) => (
+                    <li key={item}>
+                      <span aria-hidden="true">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div data-reveal style={{ transitionDelay: "110ms" }}>
+                <h3>This is not for</h3>
+                <ul>
+                  {notForBusinesses.map((item) => (
+                    <li key={item}>
+                      <span aria-hidden="true">×</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <p className="tajo-fit-note" data-reveal>If the last one is you, genuinely — you probably don’t need us.</p>
+            <p className="tajo-fit-note" data-reveal>
+              If the last one is you, genuinely — you probably don’t need us.
+            </p>
           </div>
         </SectionReveal>
       </section>
-
     </>
   );
 }

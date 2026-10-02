@@ -1,24 +1,74 @@
 import SectionReveal from "./SectionReveal";
-const gaps = ["Calls that go unanswered", "Website inquiries waiting for a reply", "Estimates with no follow-up", "Interested customers not ready yet"];
+import Icon from "./Icon";
+const gaps = [
+  {
+    title: "A missed call.",
+    text: "Someone calls while you’re on a job.",
+    icon: "phone" as const,
+  },
+  {
+    title: "An unanswered inquiry.",
+    text: "A form sits unanswered for a few hours.",
+    icon: "browser" as const,
+  },
+  {
+    title: "An estimate that goes quiet.",
+    text: "They were interested. Just not ready yet.",
+    icon: "message" as const,
+  },
+];
 export default function OpportunityGap() {
   return (
-    <section id="why" className="tajo-problem tajo-section" aria-labelledby="problem-heading">
+    <section
+      id="why"
+      className="tajo-problem tajo-section"
+      aria-labelledby="problem-heading"
+    >
       <SectionReveal>
-        <div className="tajo-section-container">
-          <div className="tajo-problem-panel">
-            <div className="tajo-problem-copy">
-              <h2 id="problem-heading" data-reveal><span>Stop losing</span> leads you’ve already earned.</h2>
-              <div>
-                <p data-reveal>TAJO builds systems that help service businesses capture inquiries, respond quickly and follow up — so fewer potential customers slip away.</p>
-                <a className="tajo-section-button" data-reveal href="#how">See how it works <span aria-hidden="true">↗</span></a>
-              </div>
-            </div>
-            <figure className="tajo-problem-art" data-reveal>
-              <img src="/assets/new_assets/problem-illustration.webp" width="1375" height="1144" loading="lazy" decoding="async" alt="A busy service business owner considering a clipboard while their phone rings." />
+        <div className="tajo-container">
+          <div className="problem-heading" data-reveal>
+            <h2 id="problem-heading">
+              Stop losing leads you’ve <em>already earned.</em>
+            </h2>
+            <p>Good opportunities can slip away in ordinary moments.</p>
+          </div>
+          <div className="problem-grid">
+            <article className="problem-block" data-reveal>
+              <Icon name={gaps[0].icon} />
+              <h3>{gaps[0].title}</h3>
+              <p>{gaps[0].text}</p>
+            </article>
+            <figure className="problem-photo photo-frame" data-reveal>
+              <img
+                src="/assets/redesign/phone.webp"
+                width="1254"
+                height="1254"
+                loading="lazy"
+                decoding="async"
+                alt="A service business owner taking a phone call in their workshop."
+              />
             </figure>
-            <ul className="tajo-gap-list">
-              {gaps.map((gap) => <li key={gap} data-reveal><span aria-hidden="true">×</span>{gap}</li>)}
-            </ul>
+            {gaps.slice(1).map((gap) => (
+              <article className="problem-block" data-reveal key={gap.title}>
+                <Icon name={gap.icon} />
+                <h3>{gap.title}</h3>
+                <p>{gap.text}</p>
+              </article>
+            ))}
+          </div>
+          <div className="problem-conclusion" data-reveal>
+            <p>
+              None of these look catastrophic on their own. But enough of them
+              add up.
+              <br />
+              <strong>TAJO helps close that gap.</strong>
+            </p>
+            <p>
+              We look at what happens from the moment someone finds your
+              business
+              <br className="desktop-break" /> to the moment they become a
+              customer — then build what’s missing.
+            </p>
           </div>
         </div>
       </SectionReveal>
