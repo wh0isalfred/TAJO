@@ -2,7 +2,20 @@ import SectionReveal from "./SectionReveal";
 export default function FAQ() {
   return <section id="faq" className="tajo-faq tajo-section" aria-labelledby="faq-heading">
     <SectionReveal><div className="tajo-faq-container">
-      <h2 id="faq-heading" data-reveal>A few things you might ask.</h2>
+      <div className="tajo-faq-introduction">
+        <div data-reveal><h2 id="faq-heading">Frequently asked questions.</h2></div>
+        <div className="tajo-faq-contact" data-reveal aria-labelledby="final-cta-heading">
+          <img className="tajo-faq-contact-image" src="/assets/old_assets/hero.webp" width="976" height="1103" loading="lazy" decoding="async" alt="" />
+          <div className="tajo-faq-contact-copy">
+            <h3 id="final-cta-heading">What happens to the lead that doesn't book today?</h3>
+            <p>If you know exactly what happens, you're probably in good shape.</p>
+            <p>If the answer is some version of <em>“we try to get back to them”</em>...</p>
+            <p><strong>that's worth a conversation.</strong></p>
+            <button type="button" className="tajo-section-button" data-diagnostic>Show us how you handle leads <span aria-hidden="true">↗</span></button>
+            <p className="tajo-faq-contact-note"><em>We'll look at the process first.</em></p>
+          </div>
+        </div>
+      </div>
       <div className="tajo-faq-list" data-reveal>
         <details name="tajo-faq" open>
           <summary>We already answer our phones.<span aria-hidden="true" /></summary>
@@ -24,7 +37,7 @@ export default function FAQ() {
           <div className="tajo-faq-answer"><p><strong>That's probably the best reason to talk.</strong></p><p>We'll walk through what currently happens when someone finds you, calls, submits an inquiry, asks for an estimate and doesn't book.</p><p>Usually the weak point becomes pretty obvious.</p></div>
         </details>
       </div>
-      <div className="tajo-faq-contact" data-reveal><h3>Still have a question?</h3><p>Tell us what you’re unsure about. We’ll look at the process first.</p><button type="button" className="tajo-section-button" data-diagnostic>Talk to us <span aria-hidden="true">↗</span></button></div>
+
     </div></SectionReveal>
   </section>;
 }
