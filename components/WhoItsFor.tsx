@@ -1,52 +1,37 @@
 import Brand from "./Brand";
 import Icon from "./Icon";
+import SectionReveal from "./SectionReveal";
+const forBusinesses = [
+  "Service businesses already getting inquiries",
+  "Owners who know some leads could be handled better",
+  "Teams that want better systems without adding unnecessary complexity",
+  "Businesses where one additional booked job actually matters",
+];
+const notForBusinesses = [
+  "Businesses looking for us to magically generate demand overnight",
+  "Companies with no existing customer interest to work with",
+  "Teams that already capture, respond to and follow up with every opportunity perfectly",
+];
 export default function WhoItsFor() {
   return (
-    <section className="who section-dark" id="who">
-      <div className="container">
-        <div className="who-layout">
-          <div>
-            <p className="eyebrow">Who it’s for</p>
-            <h2>
-              Service businesses that
-              <br />
-              want to do more with their leads.
-            </h2>
+    <>
+      <section className="tajo-fit tajo-section" id="who" aria-labelledby="fit-heading">
+        <SectionReveal>
+          <div className="tajo-section-container">
+            <div className="tajo-fit-introduction" data-reveal>
+              <h2 id="fit-heading">Honest about who this serves.</h2>
+              <p>TAJO is built for some businesses and not for others. We'd rather say so up front.</p>
+            </div>
+            <div className="tajo-fit-columns">
+              <div data-reveal><h3>This is for</h3><ul>{forBusinesses.map((item) => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul></div>
+              <div data-reveal style={{ transitionDelay: "110ms" }}><h3>This is not for</h3><ul>{notForBusinesses.map((item) => <li key={item}><span aria-hidden="true">×</span>{item}</li>)}</ul></div>
+            </div>
+            <p className="tajo-fit-note" data-reveal>If the last one is you, genuinely — you probably don’t need us.</p>
           </div>
-          <div className="fit-list">
-            <h3>TAJO is for you if:</h3>
-            <ul>
-              <li>
-                <Icon name="check" />
-                You get inquiries but lose them.
-              </li>
-              <li>
-                <Icon name="check" />
-                You’re ready to systemize your follow-up.
-              </li>
-              <li>
-                <Icon name="check" />
-                You want a modern digital presence
-                <br />
-                that actually works.
-              </li>
-            </ul>
-          </div>
-          <div className="not-fit">
-            <h3>Not for you if:</h3>
-            <ul>
-              <li>
-                <span>×</span>You’re not interested in more leads.
-              </li>
-              <li>
-                <span>×</span>You’re happy with the way things are.
-              </li>
-              <li>
-                <span>×</span>You don’t want to invest in your business.
-              </li>
-            </ul>
-          </div>
-        </div>
+        </SectionReveal>
+      </section>
+      <div className="who section-dark">
+        <div className="container">
         <div className="closing-panel">
           <div className="closing-cta">
             <span className="closing-emblem">
@@ -70,7 +55,8 @@ export default function WhoItsFor() {
             </p>
           </footer>
         </div>
+        </div>
       </div>
-    </section>
+    </>
   );
 }
