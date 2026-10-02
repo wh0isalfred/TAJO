@@ -7,7 +7,7 @@ html { scroll-padding-top: 100px; }
 .tajo-header, .tajo-hero { font-family: Switzer, Inter, Arial, sans-serif; }
 .tajo-header { position:fixed; z-index:50; inset:0 0 auto; color:#0f2c58; background:transparent; transition:background 280ms ease,box-shadow 280ms ease,color 280ms ease; }
 .tajo-header.is-solid { background:#0f2c58; color:#fff; box-shadow:0 4px 24px #071b3426; }
-.tajo-navigation { width:min(1440px,calc(100% - 80px)); margin:auto; min-height:96px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.tajo-navigation { width:min(1440px,calc(100% - 80px)); margin:auto; min-height:78px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
 .tajo-home { display:inline-flex; border-radius:8px; }
 .tajo-home .brand { gap:14px; }
 .tajo-home .brand > span { font-size:30px; font-weight:600; letter-spacing:7px; }
@@ -51,10 +51,10 @@ html { scroll-padding-top: 100px; }
  @keyframes hero-arrive { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
 }
 @media (max-width:1099px) {
- .tajo-navigation { width:calc(100% - 48px); min-height:84px; }
+ .tajo-navigation { width:calc(100% - 48px); min-height:72px; }
  .tajo-menu-toggle { display:flex; align-items:center; justify-content:center; width:46px; height:46px; border:1px solid #173e7630; border-radius:50%; background:#ffffff80; color:#0f2c58; }
  .is-solid .tajo-menu-toggle { background:#ffffff18; color:#fff; border-color:#ffffff40; }
- .tajo-nav-capsule { display:none; position:absolute; top:76px; left:24px; right:24px; border-radius:24px; padding:14px; flex-direction:column; align-items:stretch; background:#f5f8fcf5; color:#0f2c58; box-shadow:0 20px 40px #071b3426; }
+ .tajo-nav-capsule { display:none; position:absolute; top:68px; left:24px; right:24px; border-radius:24px; padding:14px; flex-direction:column; align-items:stretch; background:#f5f8fcf5; color:#0f2c58; box-shadow:0 20px 40px #071b3426; }
  .tajo-nav-capsule.is-open { display:flex; }
  .tajo-nav-capsule > a,.tajo-nav-capsule > button { justify-content:flex-start; min-height:48px; font-size:16px; }
  .tajo-nav-capsule > .tajo-nav-contact { justify-content:center; margin-top:8px; }
@@ -63,7 +63,7 @@ html { scroll-padding-top: 100px; }
  .tajo-hero h1 { letter-spacing:-2px; }
 }
 @media (max-width:767px) {
- .tajo-navigation { width:calc(100% - 40px); min-height:76px; }
+ .tajo-navigation { width:calc(100% - 40px); min-height:68px; }
  .tajo-home .brand > span { font-size:24px; letter-spacing:5px; }
  .tajo-home .brand svg { width:36px; height:30px; }
  .tajo-hero { padding:116px 20px 44px; background-size:auto 100%; }

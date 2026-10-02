@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./hero.css";
+import "./sections.css";
 export const metadata: Metadata = {
   title: "TAJO — Intelligent infrastructure between inquiry and booking",
   description:
