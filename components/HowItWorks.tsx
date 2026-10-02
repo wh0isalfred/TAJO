@@ -1,8 +1,23 @@
 import SectionReveal from "./SectionReveal";
 const steps = [
-  { title: "Capture", text: "Make it easy to say “I’m interested.” Clear service pages, quote requests and contact options." },
-  { title: "Respond", text: "Be there while they’re still interested. Acknowledge, qualify and route inquiries promptly." },
-  { title: "Follow up", text: "Not everyone books the first time. Keep the next action visible after a call or estimate." },
+  {
+    title: "Capture",
+    introduction: "Make it easy to say “I’m interested.”",
+    emphasis: "A good opportunity needs a clear next step.",
+    detail: "We build clear service pages, quote requests and contact options that make it easier to reach your business.",
+  },
+  {
+    title: "Respond",
+    introduction: "Be there while they’re still interested.",
+    emphasis: "They shouldn’t have to wonder whether you got their inquiry.",
+    detail: "We build systems that acknowledge, qualify and route new inquiries quickly — even when you’re busy on a job.",
+  },
+  {
+    title: "Follow up",
+    introduction: "Not everyone books the first time. That’s normal.",
+    emphasis: "What’s expensive is forgetting about them afterward.",
+    detail: "We build follow-up systems that keep conversations moving after a call, inquiry or estimate.",
+  },
 ];
 export default function HowItWorks() {
   return (
@@ -15,7 +30,12 @@ export default function HowItWorks() {
           </div>
           <ol className="tajo-process-steps">
             {steps.map((step, index) => <li key={step.title} data-reveal style={{ transitionDelay: `${index * 110}ms` }}>
-              <div className="tajo-step-copy"><h3>{step.title}</h3><p>{step.text}</p></div>
+              <div className="tajo-step-copy">
+                <h3>{step.title}</h3>
+                <p>{step.introduction}</p>
+                <p><strong>{step.emphasis}</strong></p>
+                <p>{step.detail}</p>
+              </div>
               <div className="tajo-step-number" aria-hidden="true"><span>0{index + 1}</span>Step</div>
             </li>)}
           </ol>
