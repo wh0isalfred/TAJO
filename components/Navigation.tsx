@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Brand from "./Brand";
 import Icon from "./Icon";
-const links = [["why", "Why TAJO"], ["how", "How it works"], ["build", "What we fix"], ["who", "Who it’s for"]];
+const links = [["why", "Why TAJO"], ["how", "How it works"], ["build", "What we fix"], ["who", "Who it’s for"], ["faq", "FAQ"]];
 export default function Navigation() {
   const [open, setOpen] = useState(false);
   const [pastHero, setPastHero] = useState(false);
@@ -42,7 +42,6 @@ export default function Navigation() {
       <button ref={toggle} className="tajo-menu-toggle" type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="tajo-navigation-links" onClick={() => setOpen(!open)}><Icon name={open ? "close" : "menu"} /></button>
       <nav id="tajo-navigation-links" className={`tajo-nav-capsule${open ? " is-open" : ""}`} aria-label="Main navigation">
         {links.map(([id, label]) => <a key={id} href={`#${id}`} aria-current={active === id ? "location" : undefined} onClick={() => setOpen(false)}>{label}</a>)}
-        <button type="button" data-faq onClick={() => setOpen(false)}>FAQ</button>
         <button className="tajo-nav-contact" type="button" data-diagnostic onClick={() => setOpen(false)}>Talk to us</button>
       </nav>
     </div>

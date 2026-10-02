@@ -1,34 +1,21 @@
 # TAJO
 
-A lightweight Next.js + TypeScript landing page for TAJO, following the supplied leadflow_tajo.png reference. The original production website remains on the old-website branch.
+One Next.js App Router landing page with React, TypeScript and local CSS. The original website is preserved on `old-website`; development is on `main`.
 
-## Development
-Use Node 22 or later.
+## Development and production
+Use Node 22 or later. Run `npm ci`, `npm run dev`, `npm run typecheck`, and `npm run build`. Preview the production build with `npm start`. Section components live in `components/`; styles live in `app/`. Source assets remain in `assets/`; browser copies are served from `public/assets/` unchanged.
 
-```sh
-npm ci
-npm run dev
-```
+## Vercel and Resend
+Use Vercel’s Next.js preset and default build/output settings. This is a Next.js runtime build, not a static `out/` export. The single `POST /api/inquiry` endpoint sends through Resend’s REST API, with no additional dependencies, database or authentication.
 
-Open http://localhost:3000. The page is composed from app/page.tsx and section components in components/. Styling lives in app/globals.css. Existing source assets are preserved in assets/ and served from public/assets/.
+Set these **server-only** environment variables in Vercel, then redeploy:
 
-## Build and checks
+- `RESEND_API_KEY`: a Resend API key authorized to send emails.
+- `RESEND_FROM_EMAIL`: a sender on a domain verified in Resend, optionally formatted `TAJO <address@your-verified-domain>`.
 
-```sh
-npm run typecheck
-npm run build
-```
+The destination is fixed to `tajopartners@gmail.com`. The visitor’s address becomes Reply-To, never the sender. Gmail is the receiving inbox; verify a domain you own for the sender. Do not prefix these variables with `NEXT_PUBLIC_` or commit secrets. Local credentials belong in ignored `.env.local`. Remove the obsolete `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` from deployment settings.
 
-The production build exports a static site to out/. Netlify uses the committed netlify.toml (build command npm run build, publish directory out, Node 22). No database, authentication or server runtime is needed.
-
-## Diagnostic and FAQ
-The diagnostic presents three questions and an initial assessment. By default it prepares a message for the user to review and open in their email app; it does not claim a message has been sent. Native dialogs provide keyboard handling, focus containment, Escape and close controls. The FAQ opens from the navigation.
-
-If direct form delivery is desired, set NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in the build environment and rebuild. It is a frontend form identifier and is included in the browser bundle. Do not commit actual keys. Without that variable the email-draft path works immediately. Automated checks do not send live enquiries.
+The setup form retains answers on errors, validates fields on client and server, uses retry-safe Resend idempotency keys, and confirms success only after Resend accepts the email and returns an ID. This confirms acceptance, not eventual inbox delivery. Missing configuration or provider failure offers retry and an explicitly unsent email draft. No live test inquiries are sent during automated validation.
 
 ## Validation
-Production build, TypeScript and Netlify CLI offline production-context build passed. Chromium checks covered 1440, 1280, 1024, 768 and 390px, including overflow, fonts, images, anchors, every diagnostic CTA, mobile navigation, FAQ, dialog closing, diagnostic recommendations and the reviewable email draft. Browser font requests were supplied with real Google Fonts bytes downloaded from the original URLs to accommodate the execution environment's browser network restrictions. The app retains the Google Fonts stylesheet.
-
-The landing page uses the supplied hero and device JPGs without modifying their bytes; the existing WebP provides the dark closing background. The inquiry and workflow cards are illustrative examples, not live customer records.
-
-The final development-server smoke check also passed (rendering, React hydration and opening the diagnostic). Structured viewport results are stored in validation/responsive-checks.json.
+Run TypeScript and production build checks, then browser checks at 1440, 1280, 1024, 768 and 390px. Check assets, typography, overflow, navigation, anchors, FAQ, modal focus, validation, retained answers, pending states, failure/retry and success using mocked delivery. See `docs/FORM_UX.md` for the form’s interaction requirements. Live email delivery still requires the Vercel environment variables and a verified Resend sender.

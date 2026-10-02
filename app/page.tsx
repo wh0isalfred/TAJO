@@ -4,6 +4,8 @@ import OpportunityGap from "../components/OpportunityGap";
 import HowItWorks from "../components/HowItWorks";
 import WhatWeBuild from "../components/WhatWeBuild";
 import WhoItsFor from "../components/WhoItsFor";
+import FAQ from "../components/FAQ";
+import ClosingSection from "../components/ClosingSection";
 import Dialogs from "../components/Dialogs";
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
         <HowItWorks />
         <WhatWeBuild />
         <WhoItsFor />
+        <FAQ />
+        <ClosingSection />
       </main>
       <Dialogs />
     </div>

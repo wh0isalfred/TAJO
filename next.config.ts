@@ -1,3 +1,3 @@
 import type { NextConfig } from "next";
-const nextConfig: NextConfig = { output: "export", devIndicators: false };
+const nextConfig: NextConfig = { devIndicators: false };
 export default nextConfig;

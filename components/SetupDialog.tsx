@@ -2,21 +2,8 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import Icon from "./Icon";
 
-const labels = {
-  name: "Name", business: "Business name or website", email: "Email", phone: "Phone",
-  kind: "What kind of business do you run?", source: "Where do most new inquiries come from?",
-  followup: "What happens when someone doesn’t book right away?",
-};
-type Field = keyof typeof labels;
-type Values = Record<Field, string>;
-type Errors = Partial<Record<Field, string>>;
+import { labels, choices, fieldError, setupMessage, type Field, type Values, type Errors } from "../lib/setup";
 const empty: Values = { name: "", business: "", email: "", phone: "", kind: "", source: "", followup: "" };
-const choices = {
-  kind: ["Roofing", "HVAC", "Plumbing", "Other"],
-  source: ["Phone", "Website", "Google", "Social", "Other"],
-  followup: ["We follow up manually", "Automated follow-up", "Depends", "Honestly, not sure"],
-};
-const deliveryKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 export default function SetupDialog() {
   const dialog = useRef<HTMLDialogElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -24,6 +11,7 @@ export default function SetupDialog() {
   const origin = useRef<HTMLElement | null>(null);
   const controller = useRef<AbortController | null>(null);
   const inFlight = useRef(false);
+  const submission = useRef<{ payload: string; id: string } | null>(null);
   const previousOverflow = useRef<string | null>(null);
   const [values, setValues] = useState<Values>(empty);
   const [errors, setErrors] = useState<Errors>({});
@@ -61,19 +49,6 @@ export default function SetupDialog() {
     target?.focus({ preventScroll: true });
   }
   function close() { dialog.current?.close(); }
-  function fieldError(field: Field, value: string) {
-    if (field === "name" && !value.trim()) return "Enter your name.";
-    if (field === "email") {
-      if (!value.trim()) return "Enter your email address.";
-      const input = document.createElement("input");
-      input.type = "email"; input.value = value.trim();
-      if (!input.validity.valid) return "Enter an email address like name@example.com.";
-    }
-    if (field in choices && !choices[field as keyof typeof choices].includes(value)) {
-      return field === "kind" ? "Choose your business type." : field === "source" ? "Choose where most inquiries come from." : "Choose what happens after someone doesn’t book.";
-    }
-    return undefined;
-  }
   function change(field: Field, value: string) {
     setValues(current => ({ ...current, [field]: value }));
     // Clear an existing error when corrected; don't interrupt the first attempt.
@@ -97,18 +72,23 @@ export default function SetupDialog() {
     }
     if (new FormData(event.currentTarget).get("botcheck")) return;
     const cleaned = Object.fromEntries(Object.entries(values).map(([field, value]) => [field, value.trim()])) as Values;
-    const message = (Object.keys(labels) as Field[]).map(field => `${labels[field]}: ${cleaned[field] || "Not provided"}`).join("\n");
-    if (!deliveryKey) { setDraft(message); setMode("draft"); return; }
+    const payload = JSON.stringify(cleaned);
+    if (submission.current?.payload !== payload) submission.current = { payload, id: crypto.randomUUID() };
     inFlight.current = true; setSending(true);
     const request = new AbortController(); controller.current = request;
     const timeout = window.setTimeout(() => request.abort(), 20000);
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/inquiry", {
         method: "POST", signal: request.signal,
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ access_key: deliveryKey, subject: `TAJO setup inquiry — ${cleaned.name}`, from_name: "TAJO Website", name: cleaned.name, email: cleaned.email, message, botcheck: false }),
+        body: JSON.stringify({ ...cleaned, botcheck: "", requestId: submission.current.id }),
       });
       const result = await response.json();
+      if (response.status === 422 && result.errors) {
+        setErrors(result.errors);
+        requestAnimationFrame(() => summary.current?.focus());
+        return;
+      }
       if (!response.ok || result.success !== true) throw new Error("Delivery failed");
       setMode("sent");
     } catch {
@@ -118,7 +98,7 @@ export default function SetupDialog() {
     }
   }
   function prepareDraft() {
-    setDraft((Object.keys(labels) as Field[]).map(field => `${labels[field]}: ${values[field].trim() || "Not provided"}`).join("\n"));
+    setDraft(setupMessage(values));
     setMode("draft");
   }
   return (
@@ -155,13 +135,13 @@ export default function SetupDialog() {
                 </div>)}
               </fieldset>
               <div className="setup-submit-area">
-                <button className="setup-submit" type="submit" disabled={sending}>{sending ? "Sending…" : deliveryKey ? "Show TAJO my setup" : "Prepare my email"}<Icon name="arrow" /></button>
-                <p className="setup-hint">{deliveryKey ? "We’ll review your setup before discussing the next step." : "We’ll prepare a draft for you to review and send from your email app."}</p>
+                <button className="setup-submit" type="submit" disabled={sending}>{sending ? "Sending…" : "Show TAJO my setup"}<Icon name="arrow" /></button>
+                <p className="setup-hint">We’ll review your setup before discussing the next step.</p>
               </div>
               <p className="setup-status setup-sr-only" role="status">{sending ? "Sending your setup. Please wait." : ""}</p>
               {deliveryError && <div className="setup-delivery-error" role="alert"><p>{deliveryError}</p><button type="button" className="setup-text-button" onClick={prepareDraft}>Prepare an email instead</button></div>}
             </form>}
-            {mode === "draft" && <div className="setup-result"><h3>Review your setup</h3><pre className="setup-preview">{draft}</pre><a className="setup-submit" href={`mailto:alfredenyinna03@gmail.com?subject=${encodeURIComponent("TAJO setup inquiry")}&body=${encodeURIComponent(draft)}`}>Open email draft <Icon name="arrow" /></a><button className="setup-text-button" type="button" onClick={() => setMode("form")}>Edit my answers</button></div>}
+            {mode === "draft" && <div className="setup-result"><h3>Review your setup</h3><pre className="setup-preview">{draft}</pre><a className="setup-submit" href={`mailto:tajopartners@gmail.com?subject=${encodeURIComponent("TAJO setup inquiry")}&body=${encodeURIComponent(draft)}`}>Open email draft <Icon name="arrow" /></a><button className="setup-text-button" type="button" onClick={() => setMode("form")}>Edit my answers</button></div>}
             {mode === "sent" && <div className="setup-result"><span className="setup-success-mark" aria-hidden="true">✓</span><h3>Your setup has been sent.</h3><p>Thanks for telling us about your business.</p><button className="setup-submit" type="button" onClick={close}>Done</button></div>}
           </div>
         </div>
