@@ -95,6 +95,9 @@ export default function Navigation() {
         className="tajo-navigation tajo-container"
         aria-label="Main navigation"
       >
+        <div id="navigation-left" className="navigation-side navigation-left">
+          {leftLinks.map(link)}
+        </div>
         <a
           className="tajo-home"
           href="#top"
@@ -103,9 +106,6 @@ export default function Navigation() {
         >
           <Brand />
         </a>
-        <div id="navigation-left" className="navigation-side navigation-left">
-          {leftLinks.map(link)}
-        </div>
         <div id="navigation-right" className="navigation-side navigation-right">
           {rightLinks.map(link)}
           <button
