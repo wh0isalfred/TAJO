@@ -8,6 +8,7 @@
 .tajo-problem-copy { min-width:0; display:flex; flex-direction:column; justify-content:space-between; gap:60px; }
 .tajo-section h2 { font-size:clamp(30px,2.8vw,40px); line-height:1.17; font-weight:600; letter-spacing:-1.3px; }
 .tajo-problem-copy p { color:#657185; font-size:18px; line-height:1.45; text-wrap:pretty; }
+.tajo-problem-copy h1 span { color:#b88c43; }
 .tajo-section-button { display:inline-flex; align-items:center; justify-content:center; gap:12px; min-height:46px; padding:12px 24px; border:1px solid transparent; border-radius:30px; background:#103d7d; color:white; font-size:16px; line-height:1.35; font-weight:500; transition:background 220ms ease,transform 220ms ease,box-shadow 220ms ease; }
 .tajo-problem-copy .tajo-section-button { margin-top:24px; }
 .tajo-section-button > span { font-size:21px; line-height:1; transition:transform 220ms ease; }
